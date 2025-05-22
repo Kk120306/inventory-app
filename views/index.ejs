@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Optional -->
+</head>
+<body>
+    <header>
+        <h1>🎵 Music Dashboard</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Recent Albums</h2>
+            <% if (albums.length === 0) { %>
+                <p>No songs found.</p>
+            <% } else { %>
+                <ul>
+                    <% albums.forEach(album => { %>
+                        <li><strong><%= album.title %></strong> (ID: <%= album.id %>)</li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </section>
+        <section>
+            <h2>Recent Songs</h2>
+            <% if (songs.length === 0) { %>
+                <p>No songs found.</p>
+            <% } else { %>
+                <ul>
+                    <% songs.forEach(song => { %>
+                        <li><strong><%= song.title %></strong> (ID: <%= song.id %>)</li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </section>
+    </main>
+</body>
+</html>
