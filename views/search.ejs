@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+
+<h1><%= title %></h1>
+
+<% if (songs.length === 0 && albums.length === 0 && artist.length === 0) { %>
+    <p>No results found.</p>
+<% } else { %>
+
+    <% if (songs.length > 0) { %>
+        <h2>Songs</h2>
+        <ul>
+            <% songs.forEach(song => { %>
+                <li>
+                    <strong><%= song.title %></strong><br>
+                    Album ID: <%= song.album_id %><br>
+                    Genre ID: <%= song.genre_id %><br>
+                    Duration: <%= song.duration %> seconds<br>
+                    <% if (song.image_url) { %>
+                        <img src="<%= song.image_url %>" alt="Song image">
+                    <% } %>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <% if (albums.length > 0) { %>
+        <h2>Albums</h2>
+        <ul>
+            <% albums.forEach(album => { %>
+                <li>
+                    <strong><%= album.title %></strong><br>
+                    Artist ID: <%= album.artist_id %><br>
+                    Release Date: <%= album.release_date %><br>
+                    <% if (album.image_url) { %>
+                        <img src="<%= album.image_url %>" alt="Album cover">
+                    <% } %>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <% if (artist.length > 0) { %>
+        <h2>Artists</h2>
+        <ul>
+            <% artist.forEach(art => { %>
+                <li>
+                    <strong><%= art.name %></strong><br>
+                    Country: <%= art.country %><br>
+                    Birth Date: <%= art.birth_date %><br>
+                    <% if (art.image_url) { %>
+                        <img src="<%= art.image_url %>" alt="Artist image">
+                    <% } %>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+<% } %>
+
+</body>
+</html>

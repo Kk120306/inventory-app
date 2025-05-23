@@ -10,12 +10,14 @@ async function index(req, res) {
     })
 }
 
-function createArtistGet() {
-    res.render("./artist/artists_form")
+function createArtistGet(req, res) {
+    res.render("./artist/artists_form", {
+        title : "Create Artist"
+    })
 }
 
 async function createArtistPost(req,res) {
-    const { name, country, birth_date, image_url } = req.body();
+    const { name, country, birth_date, image_url } = req.body;
     await db.createArtist(name, country, birth_date, image_url);
     res.redirect("/");
 }

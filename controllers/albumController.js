@@ -10,13 +10,23 @@ async function index(req, res) {
     })
 }
 
-function createAlbumGet() {
+async function createAlbumGet(req, res) {
+    const artists = await db.getArtists();
     res.render("./album/albums_form", {
-        title : "Create a new Album"
+        title : "Create a new Album",
+        artists : artists
     })
 }
 
+async function createAlbumPost(req, res) {
+    const { title, artist_id, release_date, image_url } = req.body;
+    await db.createAlbum( title, artist_id, release_date, image_url);
+    res.redirect("/");
+}
+
+
 module.exports = {
     index,
-    createAlbumGet
+    createAlbumGet,
+    createAlbumPost
 };

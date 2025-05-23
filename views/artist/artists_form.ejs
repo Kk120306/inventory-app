@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+
+  <form action="/artists/create" method="POST">
+    <div>
+      <label for="name">Artist Name:</label>
+      <input type="text" name="name" id="name" required />
+    </div>
+
+    <div>
+      <label for="country">Country:</label>
+      <input type="text" name="country" id="country" required />
+    </div>
+
+    <div>
+      <label for="birth_date">Birth Date:</label>
+      <input type="date" name="birth_date" id="birth_date" />
+    </div>
+
+    <div>
+      <label for="image_url">Image URL:</label>
+      <input type="text" name="image_url" id="image_url" />
+    </div>
+
+    <button type="submit">Create Artist</button>
+  </form>
+</body>
+</html>

@@ -10,6 +10,21 @@ async function index(req, res) {
     })
 }
 
+
+function createGenreGet(req, res) {
+    res.render("./genre/genres_form", {
+        title : "Create genres"
+    })
+}
+
+async function createGenrePost(req,res) {
+    const { name, desc } = req.body;
+    await db.createGenre(name, desc);
+    res.redirect("/");
+}
+
 module.exports = {
-    index
+    index,
+    createGenreGet,
+    createGenrePost
 };
